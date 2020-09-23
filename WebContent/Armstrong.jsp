@@ -7,40 +7,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-<center><h1>The required Result is:: </h1>
-        <h2>
+        
             <%
-            int n,i,flag=0;
-         
+            int n,c=0,a,temp;        
             String ns= request.getParameter("n");
             n=Integer.parseInt(ns);
-            if(n>1)
-                {
-             
-                for(i=2;i<=n/2;i++)
-                    {
-                        if(n%i==0)
-                            {
-                               flag=1;
-                               break;
-                        }
-                    }
-                }
-            if(flag==0)
-                {
-                out.println("<pre>");
-            out.println(n+" is a prime no.");
-             out.println("</pre>");
+            temp=n;
+            while(n>=1)
+            {
+                a=n%10;
+                n=n/10;
+                c=c+(a*a*a);  
             }
-            else
-                {
-                 out.println("<pre>");
-                 out.println(n+" is not a prime no.");
-                  out.println("</pre>");
+            if(temp==c)  
+            {	
+                out.println( c +" is armstrong number");   
             }
-          
-            %>
-            
-           </h2></center>
+            else{            	
+                    out.println(c +" is Not armstrong number");   
+               }
+            %>         
 </body>
 </html>
